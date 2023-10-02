@@ -28,7 +28,7 @@ const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
-        <Route exact path="/tab-home">
+        <Route path="/tab-home">
           <TabHome />
         </Route>
 

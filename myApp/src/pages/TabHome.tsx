@@ -31,7 +31,7 @@ const TabHome: React.FC = () => {
           <IonTabButton href="/tab-home/tab2" tab="tab2">
             <IonIcon icon={ellipseOutline}></IonIcon>
             <IonLabel>
-              Tab 2
+              Album
             </IonLabel>
           </IonTabButton>
           <IonTabButton href="/tab-home/tab3" tab="tab3">
