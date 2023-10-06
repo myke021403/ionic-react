@@ -2,7 +2,7 @@ import { IonContent, IonHeader, IonLoading, IonPage, IonTitle, IonToolbar } from
 import React from 'react';
 
 const Loading: React.FC = (props) => (
-    <IonLoading isOpen={props.loading} message="Loading..." spinner="circles"></IonLoading>
+    <IonLoading isOpen={props.isopen} message="Loading..." spinner="circles"></IonLoading>
 );
 
 export default Loading;
