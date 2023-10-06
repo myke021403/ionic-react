@@ -1,13 +1,15 @@
-import { IonButton, IonContent, IonHeader, IonImg, IonItem, IonList, IonLoading, IonPage, IonThumbnail, IonTitle, IonToolbar, useIonLoading, useIonViewWillEnter } from '@ionic/react';
+import { IonContent, IonHeader, IonImg, IonItem, IonList, IonPage, IonTitle, IonToolbar, useIonViewWillEnter } from '@ionic/react';
 import React, { useState } from 'react';
 import Loading from '../../components/LoadingContainer';
 
-const Tab2: React.FC = () => {
+export const Tab2: React.FC = () => {
     const [albums, setAlbums] = useState([]);
+    const [loading, SetLoading] = useState(true);
 
     useIonViewWillEnter(async () => {
-        const getAllAlbums = await getAlbums(); 
+        const getAllAlbums = await getAlbums();
         setAlbums(getAllAlbums);
+        SetLoading(false);
     });
 
     const getAlbums = (async () => {
@@ -24,18 +26,16 @@ const Tab2: React.FC = () => {
                 </IonToolbar>
             </IonHeader>
             <IonContent className="ion-padding">
-                {albums.length < 1 ? (
-                    <Loading />
-                ) : (
-                    <IonList>
-                        {albums.map((album, index) => (
-                            <IonItem key={index} className='ion-padding-bottom' lines='none'>
-                                <IonImg src={album.thumbnailUrl} slot='start' alt="thumbnail"></IonImg>
-                                {album.title}
-                            </IonItem>
-                        ))}
-                    </IonList>
-                )}
+                <Loading loading={loading} />
+
+                <IonList>
+                    {albums.slice(0, 5).map((album, index) => (
+                        <IonItem key={index} className='ion-padding-bottom' lines='none'>
+                            <IonImg src={album.thumbnailUrl} slot='start' alt="thumbnail"></IonImg>
+                            {album.title}
+                        </IonItem>
+                    ))}
+                </IonList>
             </IonContent>
         </IonPage>
     );
