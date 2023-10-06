@@ -2,6 +2,8 @@ import { IonContent, IonHeader, IonImg, IonInfiniteScroll, IonInfiniteScrollCont
 import React, { useState } from 'react';
 import Loading from '../../components/LoadingContainer';
 
+import './Tab2.css';
+
 export const Tab2: React.FC = () => {
     const numberOfItemShown = 5;
 
@@ -42,8 +44,8 @@ export const Tab2: React.FC = () => {
 
                 <IonList>
                     {albums.slice(0, maxItem).map((album, index) => (
-                        <IonItem key={index} className='ion-padding-bottom' lines='none'>
-                            <IonImg src={album.thumbnailUrl} slot='start' alt="thumbnail"></IonImg>
+                        <IonItem key={index} className='ion-padding-bottom album-list ion-margin-bottom' lines='none'>
+                            <IonImg src={album.thumbnailUrl} slot='start' alt="thumbnail" className='ion-margin-top'></IonImg>
                             {album.title}
                         </IonItem>
                     ))}
