@@ -1,4 +1,4 @@
-import { IonButton, IonButtons, IonContent, IonHeader, IonImg, IonInfiniteScroll, IonInfiniteScrollContent, IonItem, IonList, IonModal, IonPage, IonTitle, IonToolbar, useIonViewWillEnter } from '@ionic/react';
+import { IonButton, IonButtons, IonContent, IonHeader, IonImg, IonInfiniteScroll, IonInfiniteScrollContent, IonItem, IonList, IonModal, IonPage, IonText, IonTitle, IonToolbar, useIonViewWillEnter } from '@ionic/react';
 import React, { useState } from 'react';
 import Loading from '../../components/LoadingContainer';
 
@@ -12,6 +12,7 @@ export const Tab2: React.FC = () => {
     const [maxItem, setMaxItem] = useState(numberOfItemShown);
     const [showInfiniteScroll, setShowInfiniteScroll] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [openedAlbum, setOpenedAlbum] = useState(0);
 
 
     useIonViewWillEnter(async () => {
@@ -34,10 +35,13 @@ export const Tab2: React.FC = () => {
     }
 
 
-    function openModal() {
-        // console.log('here');
+    function openModal(index) {
+        setOpenedAlbum(index);
+
+       
         setIsModalOpen(true);
     }
+
 
     return (
         <IonPage>
@@ -52,7 +56,7 @@ export const Tab2: React.FC = () => {
                 <IonList>
                     {albums.slice(0, maxItem).map((album, index) => (
                         // <IonButton  expand="block">
-                            <IonItem onClick={() => openModal()} key={index} className='ion-padding-bottom album-list ion-margin-bottom' lines='none'>
+                            <IonItem onClick={() => openModal(index)} key={index} className='ion-padding-bottom album-list ion-margin-bottom' lines='none'>
                                 <IonImg src={album.thumbnailUrl} slot='start' alt="thumbnail" className='ion-margin-top'></IonImg>
                                 {album.title}
                             </IonItem>
@@ -64,15 +68,17 @@ export const Tab2: React.FC = () => {
                     <IonHeader>
                         <IonToolbar>
                             <IonTitle>
-                                Title here
+                                { albums[openedAlbum] && albums[openedAlbum].title }
                             </IonTitle>
                             <IonButtons slot="end">
                                 <IonButton onClick={() => setIsModalOpen(false)}>Back</IonButton>
                             </IonButtons>
                         </IonToolbar>
                     </IonHeader>
-                    <IonContent>
-
+                    <IonContent className="ion-padding">
+                        <IonText>
+                            Content will be here.
+                        </IonText>
                     </IonContent>
                 </IonModal>
 
