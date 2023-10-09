@@ -37,7 +37,7 @@ const TabHome: React.FC = () => {
           <IonTabButton href="/tab-home/tab3" tab="tab3">
             <IonIcon icon={accessibilityOutline}></IonIcon>
             <IonLabel>
-              Tab 3
+              Contact Us
             </IonLabel>
           </IonTabButton>
         </IonTabBar>
