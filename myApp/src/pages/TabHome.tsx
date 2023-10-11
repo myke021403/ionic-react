@@ -1,10 +1,9 @@
 import { IonContent, IonHeader, IonIcon, IonLabel, IonPage, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router';
 import Tab1 from './home_tabs/Tab1';
 
-import { accessibilityOutline, ellipseOutline, homeOutline } from 'ionicons/icons';
+import { accessibilityOutline, ellipseOutline, homeOutline, imageOutline } from 'ionicons/icons';
 import Tab3 from './home_tabs/Tab3';
 import Tab2 from './home_tabs/Tab2';
 
@@ -29,7 +28,7 @@ const TabHome: React.FC = () => {
             </IonLabel>
           </IonTabButton>
           <IonTabButton href="/tab-home/tab2" tab="tab2">
-            <IonIcon icon={ellipseOutline}></IonIcon>
+            <IonIcon icon={imageOutline}></IonIcon>
             <IonLabel>
               Album
             </IonLabel>

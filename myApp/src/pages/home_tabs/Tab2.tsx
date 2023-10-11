@@ -14,7 +14,6 @@ export const Tab2: React.FC = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [openedAlbum, setOpenedAlbum] = useState(0);
 
-
     useIonViewWillEnter(async () => {
         const getAllAlbums = await getAlbums();
         setAlbums(getAllAlbums);
@@ -35,13 +34,10 @@ export const Tab2: React.FC = () => {
     }
 
 
-    function openModal(index) {
-        setOpenedAlbum(index);
-
-       
+    function openModal(albumIndex) {
+        setOpenedAlbum(albumIndex);
         setIsModalOpen(true);
     }
-
 
     return (
         <IonPage>
